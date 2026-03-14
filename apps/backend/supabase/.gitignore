@@ -1,0 +1,11 @@
+# Supabase
+.branches
+.temp
+
+# Deno lockfiles (incompatible across Deno versions)
+**/deno.lock
+
+# dotenvx
+.env.keys
+.env.local
+.env.*.local

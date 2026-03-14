@@ -1,0 +1,781 @@
+{
+  "asin": "B08YRDNXJK",
+  "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+  "description": "",
+  "bulletPoints": [],
+  "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71xDkOObgZL.jpg",
+  "currentBsr": 6466,
+  "rootCategoryId": 7141123011,
+  "categoryTree": [
+    { "id": 7141123011, "name": "Clothing, Shoes & Jewelry" },
+    { "id": 7147441011, "name": "Men" },
+    { "id": 1040658, "name": "Clothing" },
+    { "id": 1045830, "name": "Jackets & Coats" },
+    { "id": 2476494011, "name": "Active & Performance" },
+    { "id": 7132367011, "name": "Shells" }
+  ],
+  "isParent": true,
+  "parentAsin": "B08YR33MMY",
+  "children": [
+    {
+      "asin": "B0D22KVMV2",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket, Light Khaki, 3XL",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71rJMubKraL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "3X-Large" },
+        { "dimension": "Color", "value": "Light Khaki" }
+      ]
+    },
+    {
+      "asin": "B0D224N783",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71rJMubKraL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Medium" },
+        { "dimension": "Color", "value": "Light Khaki" }
+      ]
+    },
+    {
+      "asin": "B08YR11SX4",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71xDkOObgZL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Medium" },
+        { "dimension": "Color", "value": "Black" }
+      ]
+    },
+    {
+      "asin": "B0D5BGQKLC",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71HHycpI8kL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Medium" },
+        { "dimension": "Color", "value": "Dark Grey" }
+      ]
+    },
+    {
+      "asin": "B08YRS85P2",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71xDkOObgZL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "X-Large" },
+        { "dimension": "Color", "value": "Black" }
+      ]
+    },
+    {
+      "asin": "B0BQC4SXLM",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81vyvBRw1vL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Medium" },
+        { "dimension": "Color", "value": "Darkgrey Melange" }
+      ]
+    },
+    {
+      "asin": "B0D5BD31BC",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/31+6smCLruL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "X-Large" },
+        { "dimension": "Color", "value": "Dark Grey" }
+      ]
+    },
+    {
+      "asin": "B0BQC7YDW1",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71ngwLGcbuL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Medium" },
+        { "dimension": "Color", "value": "Light Blue" }
+      ]
+    },
+    {
+      "asin": "B0BQC717J1",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81vyvBRw1vL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "X-Large" },
+        { "dimension": "Color", "value": "Darkgrey Melange" }
+      ]
+    },
+    {
+      "asin": "B0C5MJLTJB",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71F09irSdhL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Medium" },
+        { "dimension": "Color", "value": "Light Grey" }
+      ]
+    },
+    {
+      "asin": "B0CBRW6SJ8",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71xDkOObgZL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "3X-Large" },
+        { "dimension": "Color", "value": "Black" }
+      ]
+    },
+    {
+      "asin": "B0BQC8J1B6",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": null,
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Medium" },
+        { "dimension": "Color", "value": "Loyal Blue" }
+      ]
+    },
+    {
+      "asin": "B0BQC64YNS",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71ngwLGcbuL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "X-Large" },
+        { "dimension": "Color", "value": "Light Blue" }
+      ]
+    },
+    {
+      "asin": "B0D5BBH1PP",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71HHycpI8kL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "3X-Large" },
+        { "dimension": "Color", "value": "Dark Grey" }
+      ]
+    },
+    {
+      "asin": "B0C5MJJ9MC",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71F09irSdhL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "X-Large" },
+        { "dimension": "Color", "value": "Light Grey" }
+      ]
+    },
+    {
+      "asin": "B0CBRRLQ81",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81vyvBRw1vL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "3X-Large" },
+        { "dimension": "Color", "value": "Darkgrey Melange" }
+      ]
+    },
+    {
+      "asin": "B0C5MMK6K7",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81cwloXPE7L.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Medium" },
+        { "dimension": "Color", "value": "Midnight Blue Heather" }
+      ]
+    },
+    {
+      "asin": "B0BQC6K9XK",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71dSCWyQkUL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "X-Large" },
+        { "dimension": "Color", "value": "Loyal Blue" }
+      ]
+    },
+    {
+      "asin": "B08YR3294Q",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71aEiUAi7GL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Medium" },
+        { "dimension": "Color", "value": "Navy" }
+      ]
+    },
+    {
+      "asin": "B0CKRJ8SJK",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71ngwLGcbuL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "3X-Large" },
+        { "dimension": "Color", "value": "Light Blue" }
+      ]
+    },
+    {
+      "asin": "B0CKQD9TNV",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71M2QSPb5LL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Medium" },
+        { "dimension": "Color", "value": "Olive" }
+      ]
+    },
+    {
+      "asin": "B0CKRJC3WV",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71F09irSdhL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "3X-Large" },
+        { "dimension": "Color", "value": "Light Grey" }
+      ]
+    },
+    {
+      "asin": "B0C5MHNY3F",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81cwloXPE7L.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "X-Large" },
+        { "dimension": "Color", "value": "Midnight Blue Heather" }
+      ]
+    },
+    {
+      "asin": "B08YQZ92V5",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71aEiUAi7GL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "X-Large" },
+        { "dimension": "Color", "value": "Navy" }
+      ]
+    },
+    {
+      "asin": "B0CBRRLJHQ",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71dSCWyQkUL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "3X-Large" },
+        { "dimension": "Color", "value": "Loyal Blue" }
+      ]
+    },
+    {
+      "asin": "B0D5BDHRF8",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71Csj5h9YjL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Medium" },
+        { "dimension": "Color", "value": "Wine" }
+      ]
+    },
+    {
+      "asin": "B0CKQG1VGQ",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71M2QSPb5LL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "X-Large" },
+        { "dimension": "Color", "value": "Olive" }
+      ]
+    },
+    {
+      "asin": "B0CKQDD8HR",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81cwloXPE7L.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "3X-Large" },
+        { "dimension": "Color", "value": "Midnight Blue Heather" }
+      ]
+    },
+    {
+      "asin": "B0D5BDCL6T",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71Csj5h9YjL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "X-Large" },
+        { "dimension": "Color", "value": "Wine" }
+      ]
+    },
+    {
+      "asin": "B0CBRSDGT8",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71aEiUAi7GL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "3X-Large" },
+        { "dimension": "Color", "value": "Navy" }
+      ]
+    },
+    {
+      "asin": "B0CKQDCFMV",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71M2QSPb5LL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "3X-Large" },
+        { "dimension": "Color", "value": "Olive" }
+      ]
+    },
+    {
+      "asin": "B0D5BG23FW",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71Csj5h9YjL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "3X-Large" },
+        { "dimension": "Color", "value": "Wine" }
+      ]
+    },
+    {
+      "asin": "B0D2235CLW",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71rJMubKraL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "XX-Large" },
+        { "dimension": "Color", "value": "Light Khaki" }
+      ]
+    },
+    {
+      "asin": "B0D226T19M",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71rJMubKraL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Small" },
+        { "dimension": "Color", "value": "Light Khaki" }
+      ]
+    },
+    {
+      "asin": "B08YRLSW63",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71xDkOObgZL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Small" },
+        { "dimension": "Color", "value": "Black" }
+      ]
+    },
+    {
+      "asin": "B0D5BG88M8",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71HHycpI8kL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Small" },
+        { "dimension": "Color", "value": "Dark Grey" }
+      ]
+    },
+    {
+      "asin": "B08YRDNXJK",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71xDkOObgZL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Large" },
+        { "dimension": "Color", "value": "Black" }
+      ]
+    },
+    {
+      "asin": "B0BQC6QZRC",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81vyvBRw1vL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Small" },
+        { "dimension": "Color", "value": "Darkgrey Melange" }
+      ]
+    },
+    {
+      "asin": "B0BQC82MYS",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71ngwLGcbuL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Small" },
+        { "dimension": "Color", "value": "Light Blue" }
+      ]
+    },
+    {
+      "asin": "B0D5BFGN7Y",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71HHycpI8kL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Large" },
+        { "dimension": "Color", "value": "Dark Grey" }
+      ]
+    },
+    {
+      "asin": "B08YR2CCG2",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71xDkOObgZL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "XX-Large" },
+        { "dimension": "Color", "value": "Black" }
+      ]
+    },
+    {
+      "asin": "B0BQC4L6MH",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81vyvBRw1vL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Large" },
+        { "dimension": "Color", "value": "Darkgrey Melange" }
+      ]
+    },
+    {
+      "asin": "B0C5MJ231L",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/31UP0G1kevL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Small" },
+        { "dimension": "Color", "value": "Light Grey" }
+      ]
+    },
+    {
+      "asin": "B0D5BFJ24T",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71HHycpI8kL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "XX-Large" },
+        { "dimension": "Color", "value": "Dark Grey" }
+      ]
+    },
+    {
+      "asin": "B0BQC7MLC8",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71ngwLGcbuL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Large" },
+        { "dimension": "Color", "value": "Light Blue" }
+      ]
+    },
+    {
+      "asin": "B0BQC88PVF",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71dSCWyQkUL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Small" },
+        { "dimension": "Color", "value": "Loyal Blue" }
+      ]
+    },
+    {
+      "asin": "B0BQC8KPBV",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81vyvBRw1vL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "XX-Large" },
+        { "dimension": "Color", "value": "Darkgrey Melange" }
+      ]
+    },
+    {
+      "asin": "B0C5MMDLJ5",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71F09irSdhL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Large" },
+        { "dimension": "Color", "value": "Light Grey" }
+      ]
+    },
+    {
+      "asin": "B0C5MG17V1",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81cwloXPE7L.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Small" },
+        { "dimension": "Color", "value": "Midnight Blue Heather" }
+      ]
+    },
+    {
+      "asin": "B0CBRRDMNK",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71xDkOObgZL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "4X-Large" },
+        { "dimension": "Color", "value": "Black" }
+      ]
+    },
+    {
+      "asin": "B0BQC7CJQZ",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71dSCWyQkUL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Large" },
+        { "dimension": "Color", "value": "Loyal Blue" }
+      ]
+    },
+    {
+      "asin": "B0BQC7NLTP",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71ngwLGcbuL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "XX-Large" },
+        { "dimension": "Color", "value": "Light Blue" }
+      ]
+    },
+    {
+      "asin": "B0D5BFCJ7M",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71HHycpI8kL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "4X-Large" },
+        { "dimension": "Color", "value": "Dark Grey" }
+      ]
+    },
+    {
+      "asin": "B08YQTB18J",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71aEiUAi7GL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Small" },
+        { "dimension": "Color", "value": "Navy" }
+      ]
+    },
+    {
+      "asin": "B0C5MMSL5J",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71F09irSdhL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "XX-Large" },
+        { "dimension": "Color", "value": "Light Grey" }
+      ]
+    },
+    {
+      "asin": "B0CBRRT3QQ",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/416UeV0VmEL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "4X-Large" },
+        { "dimension": "Color", "value": "Darkgrey Melange" }
+      ]
+    },
+    {
+      "asin": "B0C5MGFLPW",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81cwloXPE7L.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Large" },
+        { "dimension": "Color", "value": "Midnight Blue Heather" }
+      ]
+    },
+    {
+      "asin": "B0CKQDZPH9",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71M2QSPb5LL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Small" },
+        { "dimension": "Color", "value": "Olive" }
+      ]
+    },
+    {
+      "asin": "B08YQY87QG",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71aEiUAi7GL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Large" },
+        { "dimension": "Color", "value": "Navy" }
+      ]
+    },
+    {
+      "asin": "B0BQC8GSH7",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71dSCWyQkUL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "XX-Large" },
+        { "dimension": "Color", "value": "Loyal Blue" }
+      ]
+    },
+    {
+      "asin": "B0D5BDS3LB",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71Csj5h9YjL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Small" },
+        { "dimension": "Color", "value": "Wine" }
+      ]
+    },
+    {
+      "asin": "B0CKRHZM75",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/416VN4IIVrL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "4X-Large" },
+        { "dimension": "Color", "value": "Light Blue" }
+      ]
+    },
+    {
+      "asin": "B0CKQFQQ7K",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71M2QSPb5LL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Large" },
+        { "dimension": "Color", "value": "Olive" }
+      ]
+    },
+    {
+      "asin": "B0C5MG1C24",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81cwloXPE7L.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "XX-Large" },
+        { "dimension": "Color", "value": "Midnight Blue Heather" }
+      ]
+    },
+    {
+      "asin": "B0D224DKYP",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/41PJCm6bstL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Large" },
+        { "dimension": "Color", "value": "Light Khaki" }
+      ]
+    },
+    {
+      "asin": "B0CKRKC912",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71F09irSdhL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "4X-Large" },
+        { "dimension": "Color", "value": "Light Grey" }
+      ]
+    },
+    {
+      "asin": "B08YR8YQZJ",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71aEiUAi7GL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "XX-Large" },
+        { "dimension": "Color", "value": "Navy" }
+      ]
+    },
+    {
+      "asin": "B0CBRRT9NX",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71dSCWyQkUL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "4X-Large" },
+        { "dimension": "Color", "value": "Loyal Blue" }
+      ]
+    },
+    {
+      "asin": "B0D5BDXTPB",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": null,
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "Large" },
+        { "dimension": "Color", "value": "Wine" }
+      ]
+    },
+    {
+      "asin": "B0CKQDZPK7",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71M2QSPb5LL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "XX-Large" },
+        { "dimension": "Color", "value": "Olive" }
+      ]
+    },
+    {
+      "asin": "B0CKQDKJKH",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/41+XBj7eJ1L.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "4X-Large" },
+        { "dimension": "Color", "value": "Midnight Blue Heather" }
+      ]
+    },
+    {
+      "asin": "B0CBRQHWGG",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71aEiUAi7GL.jpg",
+      "currentBsr": 6467,
+      "attributes": [
+        { "dimension": "Size", "value": "4X-Large" },
+        { "dimension": "Color", "value": "Navy" }
+      ]
+    },
+    {
+      "asin": "B0D5BF12Q2",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71Csj5h9YjL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "XX-Large" },
+        { "dimension": "Color", "value": "Wine" }
+      ]
+    },
+    {
+      "asin": "B0CKQFCQ59",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/313u3Mvp9HL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "4X-Large" },
+        { "dimension": "Color", "value": "Olive" }
+      ]
+    },
+    {
+      "asin": "B0D5BFSR5J",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71Csj5h9YjL.jpg",
+      "currentBsr": 6467,
+      "attributes": [
+        { "dimension": "Size", "value": "4X-Large" },
+        { "dimension": "Color", "value": "Wine" }
+      ]
+    },
+    {
+      "asin": "B0D224C669",
+      "title": "33,000ft Men's Hooded Softshell Jacket Waterproof Lightweight Insulated Windbreaker Fleece Lined Rain Shell Jacket",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71rJMubKraL.jpg",
+      "currentBsr": 6466,
+      "attributes": [
+        { "dimension": "Size", "value": "4X-Large" },
+        { "dimension": "Color", "value": "Light Khaki" }
+      ]
+    }
+  ]
+}

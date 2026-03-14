@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f8f4ed;
+  --color-gold-300: #e0cc88;
+  --color-gold-400: #d4b056;
+  --color-gold-500: #c9a84c;
+  --color-gold-600: #b8962a;
+  --color-orange: #f5a623;
+  --color-orange-hover: #e09718;
+}
+
+/* react-tag-input-component overrides — !important needed to beat injected <style> */
+.rti--container {
+  --rti-bg: #f9fafb !important;
+  --rti-border: #e5e7eb !important;
+  --rti-radius: 0.5rem !important;
+  --rti-s: 0.625rem !important;
+  --rti-tag: #f3f4f6 !important;
+  --rti-tag-remove: #9ca3af !important;
+  background: #f9fafb !important;
+  border-color: #e5e7eb !important;
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem !important;
+  min-height: 2.625rem;
+}
+
+.rti--container:focus-within {
+  border-color: #c9a84c !important;
+  box-shadow: 0 0 0 2px rgba(224, 204, 136, 0.4) !important;
+}
+
+.rti--tag {
+  background: #e5e7eb !important;
+  color: #374151;
+  border-radius: 0.375rem !important;
+  padding: 0.125rem 0.5rem !important;
+  font-size: 0.8125rem;
+}
+
+.rti--tag button {
+  color: #6b7280;
+}
+
+.rti--input {
+  background: transparent !important;
+  font-size: 0.875rem;
+  color: #111827;
+}
+
+.rti--input::placeholder {
+  color: #9ca3af;
+}
