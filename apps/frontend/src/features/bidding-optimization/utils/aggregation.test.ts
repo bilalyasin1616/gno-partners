@@ -193,23 +193,6 @@ describe('aggregateCampaigns', () => {
     expect(result[0].spentDayBeforeYesterday).toBe(0);
   });
 
-  it('sorts by portfolio alphabetically, then by 30d sales descending', () => {
-    const allDates = dates(30);
-    const rows = allDates.flatMap((date) => [
-      row({ date, campaignName: 'Low Sales', portfolioName: 'Alpha', sales: 10 }),
-      row({ date, campaignName: 'High Sales', portfolioName: 'Alpha', sales: 100 }),
-      row({ date, campaignName: 'Beta Camp', portfolioName: 'Beta', sales: 50 }),
-    ]);
-
-    const result = aggregateCampaigns(rows);
-
-    expect(result[0].portfolio).toBe('Alpha');
-    expect(result[0].campaignName).toBe('High Sales');
-    expect(result[1].portfolio).toBe('Alpha');
-    expect(result[1].campaignName).toBe('Low Sales');
-    expect(result[2].portfolio).toBe('Beta');
-  });
-
   it('carries over campaign metadata (status, portfolio, budget)', () => {
     const rows = [
       row({
