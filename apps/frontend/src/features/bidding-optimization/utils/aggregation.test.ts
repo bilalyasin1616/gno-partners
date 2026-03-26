@@ -132,6 +132,17 @@ describe('aggregateCampaigns', () => {
     expect(result[0].acosDelta).toBe(0);
   });
 
+  it('returns 0 ACOS delta when 7d ACOS is 0', () => {
+    const allDates = dates(30);
+    const rows = allDates.map((date, i) =>
+      row({ date, spend: i < 23 ? 10 : 0, sales: 100 })
+    );
+
+    const result = aggregateCampaigns(rows);
+
+    expect(result[0].acosDelta).toBe(0);
+  });
+
   it('extracts yesterday and day-before-yesterday spend', () => {
     const allDates = dates(30);
     const rows = allDates.map((date, i) =>

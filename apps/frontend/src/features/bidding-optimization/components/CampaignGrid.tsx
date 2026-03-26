@@ -6,9 +6,104 @@ import DataEditor, {
   type Item,
   type EditableGridCell,
   type Theme,
+  type CustomCell,
+  type CustomRenderer,
+  type ProvideEditorComponent,
 } from "@glideapps/glide-data-grid";
 import "@glideapps/glide-data-grid/dist/index.css";
 import type { AggregatedCampaign, CampaignRules } from "../types";
+
+// ---------------------------------------------------------------------------
+// Dropdown custom cell
+// ---------------------------------------------------------------------------
+
+interface DropdownCellData {
+  kind: "dropdown-cell";
+  value: string;
+  presets: readonly string[];
+}
+
+type DropdownCell = CustomCell<DropdownCellData>;
+
+const DROPDOWN_PRESETS = ["3%", "5%", "6%", "10%"] as const;
+
+const DropdownEditor: ProvideEditorComponent<DropdownCell> = ({ value: cell, onChange, onFinishedEditing }) => {
+  const currentValue = cell.data.value;
+
+  const handleSelect = (val: string) => {
+    const next: DropdownCell = { ...cell, data: { ...cell.data, value: val } };
+    onChange(next);
+    onFinishedEditing(next);
+  };
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", background: "white", minWidth: 100 }}>
+      {cell.data.presets.map((preset) => (
+        <button
+          key={preset}
+          onClick={() => handleSelect(preset)}
+          style={{
+            padding: "6px 12px",
+            textAlign: "left",
+            fontSize: 13,
+            border: "none",
+            background: preset === currentValue ? "#fefce8" : "white",
+            fontWeight: preset === currentValue ? 600 : 400,
+            cursor: "pointer",
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = "#f3f4f6"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = preset === currentValue ? "#fefce8" : "white"; }}
+        >
+          {preset}
+        </button>
+      ))}
+      <div style={{ borderTop: "1px solid #e5e7eb", padding: "4px 8px" }}>
+        <input
+          autoFocus
+          type="text"
+          placeholder="Custom %"
+          defaultValue={DROPDOWN_PRESETS.includes(currentValue as typeof DROPDOWN_PRESETS[number]) ? "" : currentValue}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") handleSelect((e.target as HTMLInputElement).value);
+            if (e.key === "Escape") onFinishedEditing();
+          }}
+          style={{ width: "100%", fontSize: 13, padding: "4px", border: "1px solid #d1d5db", borderRadius: 4, outline: "none" }}
+        />
+      </div>
+    </div>
+  );
+};
+
+const dropdownRenderer: CustomRenderer<DropdownCell> = {
+  kind: GridCellKind.Custom,
+  isMatch: (cell: CustomCell): cell is DropdownCell =>
+    (cell.data as DropdownCellData).kind === "dropdown-cell",
+  draw: (args, cell) => {
+    const { ctx, rect, theme } = args;
+    const text = cell.data.value || "";
+    ctx.fillStyle = theme.textDark;
+    ctx.font = `13px ${theme.fontFamily}`;
+    ctx.fillText(text, rect.x + 8, rect.y + rect.height / 2 + 4);
+    // Dropdown arrow
+    const arrowX = rect.x + rect.width - 18;
+    const arrowY = rect.y + rect.height / 2;
+    ctx.fillStyle = "#9ca3af";
+    ctx.beginPath();
+    ctx.moveTo(arrowX, arrowY - 3);
+    ctx.lineTo(arrowX + 6, arrowY - 3);
+    ctx.lineTo(arrowX + 3, arrowY + 3);
+    ctx.closePath();
+    ctx.fill();
+    return true;
+  },
+  provideEditor: () => ({
+    editor: DropdownEditor,
+    disablePadding: true,
+    disableStyling: true,
+  }),
+};
+
+const customRenderers: CustomRenderer<DropdownCell>[] = [dropdownRenderer];
 
 interface Props {
   campaigns: AggregatedCampaign[];
@@ -91,8 +186,19 @@ function percentCell(value: number, theme?: Partial<Theme>): GridCell {
   return { kind: GridCellKind.Number, data: value, displayData: display, allowOverlay: false, themeOverride: theme };
 }
 
-function editableTextCell(text: string): GridCell {
-  return { kind: GridCellKind.Text, data: text, displayData: text, allowOverlay: true, themeOverride: THEME_RULE };
+function editableTextCell(text: string, suffix = "", prefix = ""): GridCell {
+  const display = text ? `${prefix}${text}${suffix}` : "";
+  return { kind: GridCellKind.Text, data: text, displayData: display, allowOverlay: true, readonly: false, themeOverride: THEME_RULE };
+}
+
+function dropdownCell(value: string): DropdownCell {
+  return {
+    kind: GridCellKind.Custom,
+    data: { kind: "dropdown-cell", value, presets: DROPDOWN_PRESETS },
+    allowOverlay: true,
+    copyData: value,
+    themeOverride: THEME_RULE,
+  };
 }
 
 function checkboxCell(checked: boolean): GridCell {
@@ -107,8 +213,8 @@ function getCellTheme(col: number, isPaused: boolean): Partial<Theme> | undefine
 }
 
 function getDeltaTheme(value: number, isPaused: boolean): Partial<Theme> | undefined {
-  if (value > 0) return isPaused ? THEME_DELTA_POSITIVE_PAUSED : THEME_DELTA_POSITIVE;
-  if (value < 0) return isPaused ? THEME_DELTA_NEGATIVE_PAUSED : THEME_DELTA_NEGATIVE;
+  if (value < 0) return isPaused ? THEME_DELTA_POSITIVE_PAUSED : THEME_DELTA_POSITIVE; // lower ACOS = good
+  if (value > 0) return isPaused ? THEME_DELTA_NEGATIVE_PAUSED : THEME_DELTA_NEGATIVE; // higher ACOS = bad
   return isPaused ? THEME_PAUSED : undefined;
 }
 
@@ -146,6 +252,14 @@ function getRuleCellContent(rules: CampaignRules, ruleIndex: number): GridCell {
     case "lowerBleeders":
     case "pauseCampaign":
       return checkboxCell(rules[field] as boolean);
+    case "increaseLowClicks":
+    case "increaseGoodAcos":
+      return dropdownCell(rules[field] as string);
+    case "lowerAcosThreshold":
+    case "goodAcosCriteria":
+      return editableTextCell(rules[field] as string, "%");
+    case "newBudget":
+      return editableTextCell(rules[field] as string, "", "$");
     default:
       return editableTextCell(rules[field] as string);
   }
@@ -190,6 +304,8 @@ export function CampaignGrid({ campaigns, rulesMap, onRuleChanged }: Props) {
         onRuleChanged(campaign.campaignName, field, newValue.data ?? false);
       } else if (newValue.kind === GridCellKind.Text) {
         onRuleChanged(campaign.campaignName, field, newValue.data);
+      } else if (newValue.kind === GridCellKind.Custom) {
+        onRuleChanged(campaign.campaignName, field, (newValue as DropdownCell).data.value);
       }
     },
     [sorted, onRuleChanged]
@@ -201,6 +317,7 @@ export function CampaignGrid({ campaigns, rulesMap, onRuleChanged }: Props) {
       rows={sorted.length}
       getCellContent={getCellContent}
       onCellEdited={onCellEdited}
+      customRenderers={customRenderers}
       width="100%"
       height="100%"
       smoothScrollX

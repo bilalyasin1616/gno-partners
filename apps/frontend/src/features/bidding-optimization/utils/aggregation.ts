@@ -5,7 +5,8 @@ function computeAcos(spend: number, sales: number): number {
 }
 
 function computeAcosDelta(acos30d: number, acos7d: number): number {
-  return acos30d === 0 ? 0 : ((acos7d - acos30d) / acos30d) * 100;
+  if (acos30d === 0 || acos7d === 0) return 0;
+  return ((acos7d - acos30d) / acos30d) * 100;
 }
 
 function sortedUniqueDates(rows: CSVRow[]): string[] {
