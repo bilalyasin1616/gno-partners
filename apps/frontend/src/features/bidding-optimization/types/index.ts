@@ -41,3 +41,15 @@ export interface AggregatedCampaign {
   /** true when yesterday spend >= 90% of budget */
   budgetCheck: boolean;
 }
+
+/** Per-campaign rule selections (Phase 2). */
+export interface CampaignRules {
+  lowerBleeders: boolean;
+  lowerAcosThreshold: string;
+  increaseLowClicks: string;
+  increaseGoodAcos: string;
+  goodAcosCriteria: string;
+  newBudget: string;
+  pauseCampaign: boolean;
+  notes: string;
+}

@@ -1,20 +1,23 @@
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import DataEditor, {
   type GridCell,
   type GridColumn,
   GridCellKind,
   type Item,
+  type EditableGridCell,
   type Theme,
 } from "@glideapps/glide-data-grid";
 import "@glideapps/glide-data-grid/dist/index.css";
-import type { AggregatedCampaign } from "../types";
+import type { AggregatedCampaign, CampaignRules } from "../types";
 
 interface Props {
   campaigns: AggregatedCampaign[];
+  rulesMap: Map<string, CampaignRules>;
+  onRuleChanged: (campaignName: string, field: keyof CampaignRules, value: string | boolean) => void;
 }
 
-const THEME_30D: Partial<Theme> = { bgCell: "#eff6ff" }; // light blue
-const THEME_7D: Partial<Theme> = { bgCell: "#f0fdf4" }; // light green
+const THEME_30D: Partial<Theme> = { bgCell: "#eff6ff" };
+const THEME_7D: Partial<Theme> = { bgCell: "#f0fdf4" };
 const THEME_PAUSED: Partial<Theme> = { bgCell: "#f9fafb", textDark: "#9ca3af" };
 const THEME_PAUSED_30D: Partial<Theme> = { bgCell: "#e8eff7", textDark: "#9ca3af" };
 const THEME_PAUSED_7D: Partial<Theme> = { bgCell: "#e6f5ec", textDark: "#9ca3af" };
@@ -22,6 +25,20 @@ const THEME_DELTA_POSITIVE: Partial<Theme> = { textDark: "#16a34a" };
 const THEME_DELTA_NEGATIVE: Partial<Theme> = { textDark: "#dc2626" };
 const THEME_DELTA_POSITIVE_PAUSED: Partial<Theme> = { textDark: "#86efac", bgCell: "#f9fafb" };
 const THEME_DELTA_NEGATIVE_PAUSED: Partial<Theme> = { textDark: "#fca5a5", bgCell: "#f9fafb" };
+const THEME_RULE: Partial<Theme> = { bgCell: "#fefce8" }; // light yellow for rule columns
+
+const DATA_COL_COUNT = 20;
+
+const RULE_FIELDS: (keyof CampaignRules)[] = [
+  "lowerBleeders",
+  "lowerAcosThreshold",
+  "increaseLowClicks",
+  "increaseGoodAcos",
+  "goodAcosCriteria",
+  "newBudget",
+  "pauseCampaign",
+  "notes",
+];
 
 function buildColumns(count: number): GridColumn[] {
   return [
@@ -45,10 +62,18 @@ function buildColumns(count: number): GridColumn[] {
     { title: "Yday Spend", width: 95, group: "Recent" },
     { title: "DBY Spend", width: 95, group: "Recent" },
     { title: "Budget \u26A0", width: 80, group: "Recent" },
+    // Rule columns
+    { title: "Lower Bleeders", width: 110, group: "Rules" },
+    { title: "Lower ACOS >", width: 100, group: "Rules" },
+    { title: "Inc Low Clicks", width: 110, group: "Rules" },
+    { title: "Inc Good ACOS", width: 110, group: "Rules" },
+    { title: "Good ACOS <", width: 100, group: "Rules" },
+    { title: "New Budget", width: 100, group: "Rules" },
+    { title: "Pause", width: 70, group: "Rules" },
+    { title: "Notes", width: 200, group: "Rules" },
   ];
 }
 
-// Column indices for 30d (even in each metric pair) and 7d (odd)
 const COL_30D = new Set([4, 6, 8, 10, 12, 14]);
 const COL_7D = new Set([5, 7, 9, 11, 13, 15]);
 
@@ -66,6 +91,14 @@ function percentCell(value: number, theme?: Partial<Theme>): GridCell {
   return { kind: GridCellKind.Number, data: value, displayData: display, allowOverlay: false, themeOverride: theme };
 }
 
+function editableTextCell(text: string): GridCell {
+  return { kind: GridCellKind.Text, data: text, displayData: text, allowOverlay: true, themeOverride: THEME_RULE };
+}
+
+function checkboxCell(checked: boolean): GridCell {
+  return { kind: GridCellKind.Boolean, data: checked, allowOverlay: false, themeOverride: THEME_RULE };
+}
+
 function getCellTheme(col: number, isPaused: boolean): Partial<Theme> | undefined {
   if (COL_30D.has(col)) return isPaused ? THEME_PAUSED_30D : THEME_30D;
   if (COL_7D.has(col)) return isPaused ? THEME_PAUSED_7D : THEME_7D;
@@ -79,9 +112,7 @@ function getDeltaTheme(value: number, isPaused: boolean): Partial<Theme> | undef
   return isPaused ? THEME_PAUSED : undefined;
 }
 
-function getCellContent(campaigns: AggregatedCampaign[], [col, row]: Item): GridCell {
-  const c = campaigns[row];
-  const paused = c.status === "PAUSED";
+function getDataCellContent(c: AggregatedCampaign, col: number, paused: boolean): GridCell {
   const theme = getCellTheme(col, paused);
 
   switch (col) {
@@ -109,6 +140,17 @@ function getCellContent(campaigns: AggregatedCampaign[], [col, row]: Item): Grid
   }
 }
 
+function getRuleCellContent(rules: CampaignRules, ruleIndex: number): GridCell {
+  const field = RULE_FIELDS[ruleIndex];
+  switch (field) {
+    case "lowerBleeders":
+    case "pauseCampaign":
+      return checkboxCell(rules[field] as boolean);
+    default:
+      return editableTextCell(rules[field] as string);
+  }
+}
+
 function sortCampaigns(campaigns: AggregatedCampaign[]): AggregatedCampaign[] {
   return [...campaigns].sort((a, b) => {
     const portfolioCmp = a.portfolio.localeCompare(b.portfolio);
@@ -117,15 +159,48 @@ function sortCampaigns(campaigns: AggregatedCampaign[]): AggregatedCampaign[] {
   });
 }
 
-export function CampaignGrid({ campaigns }: Props) {
+export function CampaignGrid({ campaigns, rulesMap, onRuleChanged }: Props) {
   const sorted = useMemo(() => sortCampaigns(campaigns), [campaigns]);
   const columns = useMemo(() => buildColumns(campaigns.length), [campaigns.length]);
+
+  const getCellContent = useCallback(
+    ([col, row]: Item): GridCell => {
+      const c = sorted[row];
+      const paused = c.status === "PAUSED";
+
+      if (col < DATA_COL_COUNT) {
+        return getDataCellContent(c, col, paused);
+      }
+
+      const rules = rulesMap.get(c.campaignName);
+      if (!rules) return textCell("");
+      return getRuleCellContent(rules, col - DATA_COL_COUNT);
+    },
+    [sorted, rulesMap]
+  );
+
+  const onCellEdited = useCallback(
+    ([col, row]: Item, newValue: EditableGridCell) => {
+      if (col < DATA_COL_COUNT) return;
+
+      const campaign = sorted[row];
+      const field = RULE_FIELDS[col - DATA_COL_COUNT];
+
+      if (newValue.kind === GridCellKind.Boolean) {
+        onRuleChanged(campaign.campaignName, field, newValue.data ?? false);
+      } else if (newValue.kind === GridCellKind.Text) {
+        onRuleChanged(campaign.campaignName, field, newValue.data);
+      }
+    },
+    [sorted, onRuleChanged]
+  );
 
   return (
     <DataEditor
       columns={columns}
       rows={sorted.length}
-      getCellContent={(item) => getCellContent(sorted, item)}
+      getCellContent={getCellContent}
+      onCellEdited={onCellEdited}
       width="100%"
       height="100%"
       smoothScrollX
