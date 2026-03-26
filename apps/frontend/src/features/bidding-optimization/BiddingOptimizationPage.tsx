@@ -41,41 +41,41 @@ export function BiddingOptimizationPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="flex h-screen flex-col bg-cream">
       <Navbar toolName="Bidding Optimization" />
-      <main className="mx-auto max-w-7xl px-6 py-8">
-        {!campaigns && !processing && (
+
+      {!campaigns && !processing && (
+        <main className="mx-auto w-full max-w-2xl px-6 py-8">
           <CsvUploader onFileLoaded={handleFileLoaded} />
-        )}
+        </main>
+      )}
 
-        {processing && (
-          <div className="flex items-center justify-center py-16">
-            <span className="h-6 w-6 animate-spin rounded-full border-2 border-gold-500 border-t-transparent" />
-            <span className="ml-3 text-sm text-gray-500">Processing report...</span>
+      {processing && (
+        <div className="flex flex-1 items-center justify-center">
+          <span className="h-6 w-6 animate-spin rounded-full border-2 border-gold-500 border-t-transparent" />
+          <span className="ml-3 text-sm text-gray-500">Processing report...</span>
+        </div>
+      )}
+
+      {error && (
+        <p className="mt-4 text-center text-sm text-red-600">{error}</p>
+      )}
+
+      {campaigns && (
+        <div className="flex min-h-0 flex-1 flex-col px-2 pb-2">
+          <div className="flex items-center justify-end px-1 py-2">
+            <button
+              onClick={() => { setCampaigns(null); setError(null); }}
+              className="text-xs text-gray-400 hover:text-gray-700"
+            >
+              Upload new report
+            </button>
           </div>
-        )}
-
-        {error && (
-          <p className="mt-4 text-center text-sm text-red-600">{error}</p>
-        )}
-
-        {campaigns && (
-          <>
-            <div className="mb-4 flex items-center justify-between">
-              <p className="text-sm text-gray-500">
-                {campaigns.length} campaigns
-              </p>
-              <button
-                onClick={() => { setCampaigns(null); setError(null); }}
-                className="text-xs text-gray-400 hover:text-gray-700"
-              >
-                Upload new report
-              </button>
-            </div>
+          <div className="min-h-0 flex-1">
             <CampaignGrid campaigns={campaigns} />
-          </>
-        )}
-      </main>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
