@@ -1,29 +1,9 @@
 import { useCallback, useRef, useState } from "react";
 import { Navbar } from "../../shared/components/Navbar";
 import { CsvUploader } from "./components/CsvUploader";
-import { CampaignGrid } from "./components/CampaignGrid";
+import { CampaignGrid } from "./components/campaign-grid/CampaignGrid";
+import { createEmptyRules, buildRulesMap } from "./utils/rules";
 import type { AggregatedCampaign, CampaignRules } from "./types";
-
-function createEmptyRules(): CampaignRules {
-  return {
-    lowerBleeders: false,
-    lowerAcosThreshold: "",
-    increaseLowClicks: "",
-    increaseGoodAcos: "",
-    goodAcosCriteria: "",
-    newBudget: "",
-    pauseCampaign: false,
-    notes: "",
-  };
-}
-
-function buildRulesMap(campaigns: AggregatedCampaign[]): Map<string, CampaignRules> {
-  const map = new Map<string, CampaignRules>();
-  for (const c of campaigns) {
-    map.set(c.campaignName, createEmptyRules());
-  }
-  return map;
-}
 
 export function BiddingOptimizationPage() {
   const [campaigns, setCampaigns] = useState<AggregatedCampaign[] | null>(null);
