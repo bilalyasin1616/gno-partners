@@ -1,8 +1,11 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { Navbar } from "../../shared/components/Navbar";
 import { CsvUploader } from "./components/CsvUploader";
 import { CampaignGrid } from "./components/campaign-grid/CampaignGrid";
-import { createEmptyRules, buildRulesMap } from "./utils/rules";
+import { LoadingSpinner } from "./components/LoadingSpinner";
+import { ApplyBar } from "./components/apply-bar/ApplyBar";
+import { ApplyModal } from "./components/apply-bar/ApplyModal";
+import { createEmptyRules, buildRulesMap, hasAnyRulesSet } from "./utils/rules";
 import type { AggregatedCampaign, CampaignRules } from "./types";
 
 export function BiddingOptimizationPage() {
@@ -10,7 +13,10 @@ export function BiddingOptimizationPage() {
   const [rulesMap, setRulesMap] = useState<Map<string, CampaignRules>>(new Map());
   const [error, setError] = useState<string | null>(null);
   const [processing, setProcessing] = useState(false);
+  const [showApplyModal, setShowApplyModal] = useState(false);
   const workerRef = useRef<Worker | null>(null);
+
+  const hasRules = useMemo(() => hasAnyRulesSet(rulesMap), [rulesMap]);
 
   const handleFileLoaded = useCallback((csvText: string) => {
     setError(null);
@@ -69,8 +75,7 @@ export function BiddingOptimizationPage() {
 
       {processing && (
         <div className="flex flex-1 items-center justify-center">
-          <span className="h-6 w-6 animate-spin rounded-full border-2 border-gold-500 border-t-transparent" />
-          <span className="ml-3 text-sm text-gray-500">Processing report...</span>
+          <LoadingSpinner message="Processing report..." />
         </div>
       )}
 
@@ -79,15 +84,7 @@ export function BiddingOptimizationPage() {
       )}
 
       {campaigns && (
-        <div className="flex min-h-0 flex-1 flex-col px-2 pb-2">
-          <div className="flex items-center justify-end px-1 py-2">
-            <button
-              onClick={() => { setCampaigns(null); setRulesMap(new Map()); setError(null); }}
-              className="text-xs text-gray-400 hover:text-gray-700"
-            >
-              Upload new report
-            </button>
-          </div>
+        <div className="flex min-h-0 flex-1 flex-col px-2">
           <div className="min-h-0 flex-1">
             <CampaignGrid
               campaigns={campaigns}
@@ -95,7 +92,16 @@ export function BiddingOptimizationPage() {
               onRuleChanged={handleRuleChanged}
             />
           </div>
+          <ApplyBar
+            hasRules={hasRules}
+            onApplyClick={() => setShowApplyModal(true)}
+            onReload={() => { setCampaigns(null); setRulesMap(new Map()); setError(null); }}
+          />
         </div>
+      )}
+
+      {showApplyModal && (
+        <ApplyModal rulesMap={rulesMap} onClose={() => setShowApplyModal(false)} />
       )}
     </div>
   );
