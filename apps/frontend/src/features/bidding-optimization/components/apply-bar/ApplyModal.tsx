@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from "react";
-import type { CampaignRules } from "../../types";
+import type { CampaignRules, RuleConfig } from "../../types";
 import { downloadBlob } from "../../utils/rules";
 import { LoadingSpinner } from "../LoadingSpinner";
 
@@ -7,10 +7,11 @@ type ApplyModalState = "upload" | "processing" | "done" | "error";
 
 interface Props {
   rulesMap: Map<string, CampaignRules>;
+  ruleConfig: RuleConfig;
   onClose: () => void;
 }
 
-export function ApplyModal({ rulesMap, onClose }: Props) {
+export function ApplyModal({ rulesMap, ruleConfig, onClose }: Props) {
   const [modalState, setModalState] = useState<ApplyModalState>("upload");
   const [modifiedCount, setModifiedCount] = useState(0);
   const [errorMessage, setErrorMessage] = useState("");
@@ -51,7 +52,7 @@ export function ApplyModal({ rulesMap, onClose }: Props) {
 
         const buffer = reader.result as ArrayBuffer;
         worker.postMessage(
-          { xlsxBuffer: buffer, rulesMap: Array.from(rulesMap.entries()) },
+          { xlsxBuffer: buffer, rulesMap: Array.from(rulesMap.entries()), ruleConfig },
           [buffer]
         );
       };

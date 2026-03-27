@@ -1,27 +1,22 @@
-import type { CampaignRules, BulkOperationRow, BulkOperationRowResult } from '../types';
+import type { CampaignRules, BulkOperationRow, BulkOperationRowResult, RuleConfig } from '../types';
 
-const BLEEDER_LOW_THRESHOLD = 6;
-const BLEEDER_MID_THRESHOLD = 8;
-const BLEEDER_HIGH_THRESHOLD = 15;
-const BLEEDER_LOW_REDUCTION = 0.05;
-const BLEEDER_MID_REDUCTION = 0.10;
 const BID_DECIMAL_PLACES = 2;
 
 function isBiddableEntity(entity: string): boolean {
   return entity === "Keyword" || entity === "Product Targeting";
 }
 
-function applyBleeders(row: BulkOperationRow, result: BulkOperationRowResult): void {
+function applyBleeders(row: BulkOperationRow, result: BulkOperationRowResult, config: RuleConfig): void {
   if (!isBiddableEntity(row.entity) || row.orders > 0) return;
 
-  if (row.clicks >= BLEEDER_HIGH_THRESHOLD) {
+  if (row.clicks >= config.bleederPauseClicks) {
     result.state = "paused";
     result.modified = true;
-  } else if (row.clicks >= BLEEDER_MID_THRESHOLD) {
-    result.bid = row.bid * (1 - BLEEDER_MID_REDUCTION);
+  } else if (row.clicks >= config.bleederMidClicks) {
+    result.bid = row.bid * (1 - config.bleederMidReduction / 100);
     result.modified = true;
-  } else if (row.clicks >= BLEEDER_LOW_THRESHOLD) {
-    result.bid = row.bid * (1 - BLEEDER_LOW_REDUCTION);
+  } else if (row.clicks >= config.bleederLowClicks) {
+    result.bid = row.bid * (1 - config.bleederLowReduction / 100);
     result.modified = true;
   }
 }
@@ -37,8 +32,8 @@ function reduceBidForHighAcos(row: BulkOperationRow, result: BulkOperationRowRes
   }
 }
 
-function increaseBidForLowClicks(row: BulkOperationRow, result: BulkOperationRowResult, percentage: number): void {
-  if (!isBiddableEntity(row.entity) || row.clicks > 1) return;
+function increaseBidForLowClicks(row: BulkOperationRow, result: BulkOperationRowResult, percentage: number, config: RuleConfig): void {
+  if (!isBiddableEntity(row.entity) || row.clicks > config.lowClicksThreshold) return;
 
   result.bid = row.bid * (1 + percentage / 100);
   result.modified = true;
@@ -72,7 +67,7 @@ export function roundBid(value: number): number {
   return Math.round(value * factor) / factor;
 }
 
-export function applyRulesToRow(row: BulkOperationRow, rules: CampaignRules): BulkOperationRowResult {
+export function applyRulesToRow(row: BulkOperationRow, rules: CampaignRules, config: RuleConfig): BulkOperationRowResult {
   const result: BulkOperationRowResult = { ...row, modified: false };
 
   if (row.entity === "Campaign") {
@@ -81,7 +76,7 @@ export function applyRulesToRow(row: BulkOperationRow, rules: CampaignRules): Bu
   }
 
   if (rules.lowerBleeders) {
-    applyBleeders(row, result);
+    applyBleeders(row, result, config);
   }
 
   if (rules.lowerAcosThreshold) {
@@ -89,7 +84,7 @@ export function applyRulesToRow(row: BulkOperationRow, rules: CampaignRules): Bu
   }
 
   if (rules.increaseLowClicks) {
-    increaseBidForLowClicks(row, result, parseFloat(rules.increaseLowClicks));
+    increaseBidForLowClicks(row, result, parseFloat(rules.increaseLowClicks), config);
   }
 
   if (rules.increaseGoodAcos && rules.goodAcosCriteria) {

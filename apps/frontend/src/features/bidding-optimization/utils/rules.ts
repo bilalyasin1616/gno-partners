@@ -37,6 +37,20 @@ export function createEmptyRules(): CampaignRules {
   };
 }
 
+export function hasIncompleteRules(rulesMap: Map<string, CampaignRules>): boolean {
+  for (const rules of rulesMap.values()) {
+    if (rules.increaseGoodAcos && !rules.goodAcosCriteria) return true;
+  }
+  return false;
+}
+
+export function clearDependentRules(changedField: keyof CampaignRules, rules: CampaignRules): CampaignRules {
+  if (changedField === "increaseGoodAcos" && !rules.increaseGoodAcos) {
+    return { ...rules, goodAcosCriteria: "" };
+  }
+  return rules;
+}
+
 export function buildRulesMap(campaigns: AggregatedCampaign[]): Map<string, CampaignRules> {
   const map = new Map<string, CampaignRules>();
   for (const c of campaigns) {

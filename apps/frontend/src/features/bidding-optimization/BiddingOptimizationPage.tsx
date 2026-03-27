@@ -5,18 +5,30 @@ import { CampaignGrid } from "./components/campaign-grid/CampaignGrid";
 import { LoadingSpinner } from "./components/LoadingSpinner";
 import { ApplyBar } from "./components/apply-bar/ApplyBar";
 import { ApplyModal } from "./components/apply-bar/ApplyModal";
-import { createEmptyRules, buildRulesMap, hasAnyRulesSet } from "./utils/rules";
-import type { AggregatedCampaign, CampaignRules } from "./types";
+import { RuleConfigModal } from "./components/rule-config/RuleConfigModal";
+import { createEmptyRules, buildRulesMap, hasAnyRulesSet, hasIncompleteRules, clearDependentRules } from "./utils/rules";
+import { createDefaultRuleConfig } from "./utils/rule-config";
+import type { AggregatedCampaign, CampaignRules, RuleConfig } from "./types";
 
 export function BiddingOptimizationPage() {
   const [campaigns, setCampaigns] = useState<AggregatedCampaign[] | null>(null);
   const [rulesMap, setRulesMap] = useState<Map<string, CampaignRules>>(new Map());
+  const [ruleConfig, setRuleConfig] = useState<RuleConfig>(createDefaultRuleConfig);
   const [error, setError] = useState<string | null>(null);
   const [processing, setProcessing] = useState(false);
   const [showApplyModal, setShowApplyModal] = useState(false);
+  const [showConfigModal, setShowConfigModal] = useState(false);
   const workerRef = useRef<Worker | null>(null);
 
   const hasRules = useMemo(() => hasAnyRulesSet(rulesMap), [rulesMap]);
+  const hasIncomplete = useMemo(() => hasIncompleteRules(rulesMap), [rulesMap]);
+  const canApply = hasRules && !hasIncomplete;
+
+  const applyDisabledReason = !hasRules
+    ? "Set at least one rule to apply"
+    : hasIncomplete
+      ? "Fill in the required Good ACOS < threshold for all campaigns with Inc Good ACOS set"
+      : undefined;
 
   const handleFileLoaded = useCallback((csvText: string) => {
     setError(null);
@@ -54,8 +66,9 @@ export function BiddingOptimizationPage() {
     (campaignName: string, field: keyof CampaignRules, value: string | boolean) => {
       setRulesMap((prev) => {
         const next = new Map(prev);
-        const rules = { ...(next.get(campaignName) ?? createEmptyRules()) };
+        let rules = { ...(next.get(campaignName) ?? createEmptyRules()) };
         (rules[field] as string | boolean) = value;
+        rules = clearDependentRules(field, rules);
         next.set(campaignName, rules);
         return next;
       });
@@ -93,15 +106,21 @@ export function BiddingOptimizationPage() {
             />
           </div>
           <ApplyBar
-            hasRules={hasRules}
+            canApply={canApply}
+            disabledReason={applyDisabledReason}
             onApplyClick={() => setShowApplyModal(true)}
+            onConfigClick={() => setShowConfigModal(true)}
             onReload={() => { setCampaigns(null); setRulesMap(new Map()); setError(null); }}
           />
         </div>
       )}
 
       {showApplyModal && (
-        <ApplyModal rulesMap={rulesMap} onClose={() => setShowApplyModal(false)} />
+        <ApplyModal rulesMap={rulesMap} ruleConfig={ruleConfig} onClose={() => setShowApplyModal(false)} />
+      )}
+
+      {showConfigModal && (
+        <RuleConfigModal config={ruleConfig} onSave={setRuleConfig} onClose={() => setShowConfigModal(false)} />
       )}
     </div>
   );

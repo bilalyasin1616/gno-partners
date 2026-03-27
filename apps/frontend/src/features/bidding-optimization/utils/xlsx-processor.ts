@@ -1,5 +1,5 @@
 import * as XLSX from 'xlsx';
-import type { CampaignRules, BulkOperationRow } from '../types';
+import type { CampaignRules, BulkOperationRow, RuleConfig } from '../types';
 import { applyRulesToRow, roundBid } from './rule-engine';
 
 const SP_TAB = "Sponsored Products Campaigns";
@@ -50,7 +50,8 @@ function getCampaignNameForRow(row: (string | number | null)[], cols: ColumnMap,
 
 export function applyRulesToBulkSheet(
   xlsxBuffer: ArrayBuffer,
-  rulesMap: Map<string, CampaignRules>
+  rulesMap: Map<string, CampaignRules>,
+  ruleConfig: RuleConfig
 ): { blob: Blob; modifiedCount: number } {
   const workbook = XLSX.read(xlsxBuffer, { type: "array", sheets: [SP_TAB] });
   const sheet = workbook.Sheets[SP_TAB];
@@ -85,7 +86,7 @@ export function applyRulesToBulkSheet(
       dailyBudget: row[cols.dailyBudget] != null ? Number(row[cols.dailyBudget]) : undefined,
     };
 
-    const result = applyRulesToRow(targetRow, rules);
+    const result = applyRulesToRow(targetRow, rules, ruleConfig);
     if (!result.modified) continue;
 
     modifiedCount++;

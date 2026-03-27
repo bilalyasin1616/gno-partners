@@ -58,6 +58,16 @@ export interface BulkOperationRowResult extends BulkOperationRow {
   modified: boolean;
 }
 
+/** Configurable parameters for rule engine behavior. */
+export interface RuleConfig {
+  bleederLowClicks: number;
+  bleederMidClicks: number;
+  bleederPauseClicks: number;
+  bleederLowReduction: number;
+  bleederMidReduction: number;
+  lowClicksThreshold: number;
+}
+
 /** Per-campaign rule selections (Phase 2). */
 export interface CampaignRules {
   lowerBleeders: boolean;

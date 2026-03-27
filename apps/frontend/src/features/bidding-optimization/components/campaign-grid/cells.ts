@@ -29,9 +29,21 @@ function formatCell(value: unknown, format: CellFormat, theme?: Partial<Theme>):
   }
 }
 
+const THEME_DISABLED: Partial<Theme> = { bgCell: "#f3f4f6", textDark: "#9ca3af" };
+const THEME_REQUIRED: Partial<Theme> = { bgCell: "#fee2e2", textDark: "#dc2626", borderColor: "#f87171" };
+
 function editableTextCell(text: string, suffix = "", prefix = ""): GridCell {
   const display = text ? `${prefix}${text}${suffix}` : "";
   return { kind: GridCellKind.Text, data: text, displayData: display, allowOverlay: true, readonly: false, themeOverride: THEME_RULE };
+}
+
+function requiredTextCell(text: string, suffix = ""): GridCell {
+  const display = text ? `${text}${suffix}` : "";
+  return { kind: GridCellKind.Text, data: text, displayData: display, allowOverlay: true, readonly: false, themeOverride: THEME_REQUIRED };
+}
+
+function disabledTextCell(): GridCell {
+  return { kind: GridCellKind.Text, data: "", displayData: "", allowOverlay: false, themeOverride: THEME_DISABLED };
 }
 
 function dropdownCell(value: string): DropdownCell {
@@ -69,7 +81,10 @@ export function getRuleCellContent(rules: CampaignRules, ruleIndex: number): Gri
     case "increaseGoodAcos":
       return dropdownCell(rules[field] as string);
     case "lowerAcosThreshold":
+      return editableTextCell(rules[field] as string, "%");
     case "goodAcosCriteria":
+      if (!rules.increaseGoodAcos) return disabledTextCell();
+      if (!rules.goodAcosCriteria) return requiredTextCell("", "%");
       return editableTextCell(rules[field] as string, "%");
     case "newBudget":
       return editableTextCell(rules[field] as string, "", "$");
