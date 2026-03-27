@@ -204,12 +204,11 @@ describe('aggregateCampaigns', () => {
     expect(result[0].spentDayBeforeYesterday).toBe(0);
   });
 
-  it('carries over campaign metadata (status, portfolio, budget)', () => {
+  it('carries over campaign metadata (portfolio, budget)', () => {
     const rows = [
       row({
         date: 'Mar 25, 2026',
         campaignName: 'My Camp',
-        status: 'PAUSED',
         portfolioName: 'My Portfolio',
         budgetAmount: 75,
       }),
@@ -217,8 +216,20 @@ describe('aggregateCampaigns', () => {
 
     const result = aggregateCampaigns(rows);
 
-    expect(result[0].status).toBe('PAUSED');
     expect(result[0].portfolio).toBe('My Portfolio');
     expect(result[0].budget).toBe(75);
+  });
+
+  it('filters out PAUSED campaigns', () => {
+    const allDates = dates(30);
+    const rows = allDates.flatMap((date) => [
+      row({ date, campaignName: 'Active Camp', status: 'ENABLED' }),
+      row({ date, campaignName: 'Paused Camp', status: 'PAUSED' }),
+    ]);
+
+    const result = aggregateCampaigns(rows);
+
+    expect(result).toHaveLength(1);
+    expect(result[0].campaignName).toBe('Active Camp');
   });
 });

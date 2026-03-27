@@ -42,6 +42,32 @@ export interface AggregatedCampaign {
   budgetCheck: boolean;
 }
 
+/** A row from the Amazon Bulk Operations XLSX (Sponsored Products Campaigns tab). */
+export interface BulkOperationRow {
+  entity: string;
+  bid: number;
+  clicks: number;
+  orders: number;
+  acos: number;
+  state: string;
+  dailyBudget?: number;
+}
+
+/** Result of applying rules to a bulk operation row. */
+export interface BulkOperationRowResult extends BulkOperationRow {
+  modified: boolean;
+}
+
+/** Configurable parameters for rule engine behavior. */
+export interface RuleConfig {
+  bleederLowClicks: number;
+  bleederMidClicks: number;
+  bleederPauseClicks: number;
+  bleederLowReduction: number;
+  bleederMidReduction: number;
+  lowClicksThreshold: number;
+}
+
 /** Per-campaign rule selections (Phase 2). */
 export interface CampaignRules {
   lowerBleeders: boolean;
