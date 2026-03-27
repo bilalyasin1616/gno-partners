@@ -14,6 +14,12 @@ export interface SortEntry {
   direction: "asc" | "desc";
 }
 
+export interface TooltipState {
+  text: string;
+  x: number;
+  y: number;
+}
+
 export interface CampaignGridProps {
   campaigns: AggregatedCampaign[];
   rulesMap: Map<string, CampaignRules>;
