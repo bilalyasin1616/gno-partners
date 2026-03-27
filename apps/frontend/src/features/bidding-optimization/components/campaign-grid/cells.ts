@@ -48,14 +48,13 @@ function checkboxCell(checked: boolean): GridCell {
   return { kind: GridCellKind.Boolean, data: checked, allowOverlay: false, themeOverride: THEME_RULE };
 }
 
-export function getDataCellContent(campaign: AggregatedCampaign, colIndex: number, isPaused: boolean): GridCell {
+export function getDataCellContent(campaign: AggregatedCampaign, colIndex: number): GridCell {
   const col = DATA_COLUMNS[colIndex];
   const value = campaign[col.field];
 
-  const isAcosDelta = col.field === "acosDelta";
-  const theme = isAcosDelta
-    ? getDeltaTheme(value as number, isPaused)
-    : getCellTheme(col.period, isPaused);
+  const theme = col.field === "acosDelta"
+    ? getDeltaTheme(value as number)
+    : getCellTheme(col.period);
 
   return formatCell(value, col.format, theme);
 }
@@ -77,14 +76,6 @@ export function getRuleCellContent(rules: CampaignRules, ruleIndex: number): Gri
     default:
       return editableTextCell(rules[field] as string);
   }
-}
-
-export function sortCampaigns(campaigns: AggregatedCampaign[]): AggregatedCampaign[] {
-  return [...campaigns].sort((a, b) => {
-    const portfolioCmp = a.portfolio.localeCompare(b.portfolio);
-    if (portfolioCmp !== 0) return portfolioCmp;
-    return b.sales30d - a.sales30d;
-  });
 }
 
 // Re-export for tests

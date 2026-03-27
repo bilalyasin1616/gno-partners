@@ -79,9 +79,9 @@ export function aggregateCampaigns(rows: CSVRow[]): AggregatedCampaign[] {
     }
   }
 
-  const campaigns = Array.from(grouped.values()).map((campaignRows) =>
-    aggregate(campaignRows, allDates)
-  );
+  const campaigns = Array.from(grouped.values())
+    .map((campaignRows) => aggregate(campaignRows, allDates))
+    .filter((campaign) => campaign.status !== "PAUSED");
 
   return campaigns;
 }

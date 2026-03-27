@@ -5,6 +5,7 @@ export type CellFormat = "text" | "number" | "currency" | "percent" | "budgetChe
 export type Period = "30d" | "7d" | undefined;
 
 export interface DataColumnDef {
+  id: string;
   field: keyof AggregatedCampaign;
   title: string;
   width: number;
@@ -14,26 +15,28 @@ export interface DataColumnDef {
 }
 
 export const DATA_COLUMNS: DataColumnDef[] = [
-  { field: "campaignName", title: "Campaigns", width: 260, group: "Info", format: "text" },
-  { field: "status", title: "Status", width: 90, group: "Info", format: "text" },
-  { field: "portfolio", title: "Portfolio", width: 150, group: "Info", format: "text" },
-  { field: "budget", title: "Budget", width: 80, group: "Info", format: "currency" },
-  { field: "impressions30d", title: "Imp 30d", width: 90, group: "Impressions", format: "number", period: "30d" },
-  { field: "impressions7d", title: "Imp 7d", width: 90, group: "Impressions", format: "number", period: "7d" },
-  { field: "clicks30d", title: "Clicks 30d", width: 90, group: "Clicks", format: "number", period: "30d" },
-  { field: "clicks7d", title: "Clicks 7d", width: 90, group: "Clicks", format: "number", period: "7d" },
-  { field: "spend30d", title: "Spend 30d", width: 95, group: "Spend", format: "currency", period: "30d" },
-  { field: "spend7d", title: "Spend 7d", width: 95, group: "Spend", format: "currency", period: "7d" },
-  { field: "orders30d", title: "Orders 30d", width: 90, group: "Orders", format: "number", period: "30d" },
-  { field: "orders7d", title: "Orders 7d", width: 90, group: "Orders", format: "number", period: "7d" },
-  { field: "sales30d", title: "Sales 30d", width: 95, group: "Sales", format: "currency", period: "30d" },
-  { field: "sales7d", title: "Sales 7d", width: 95, group: "Sales", format: "currency", period: "7d" },
-  { field: "acos30d", title: "ACOS 30d", width: 90, group: "ACOS", format: "percent", period: "30d" },
-  { field: "acos7d", title: "ACOS 7d", width: 90, group: "ACOS", format: "percent", period: "7d" },
-  { field: "acosDelta", title: "ACOS \u0394", width: 90, group: "Trend", format: "percent" },
-  { field: "spentYesterday", title: "Yday Spend", width: 95, group: "Recent", format: "currency" },
-  { field: "spentDayBeforeYesterday", title: "DBY Spend", width: 95, group: "Recent", format: "currency" },
-  { field: "budgetCheck", title: "Budget \u26A0", width: 80, group: "Recent", format: "budgetCheck" },
+  { id: "campaignName", field: "campaignName", title: "Campaigns", width: 260, group: "Info", format: "text" },
+  { id: "portfolio", field: "portfolio", title: "Portfolio", width: 150, group: "Info", format: "text" },
+  { id: "budget", field: "budget", title: "Budget", width: 80, group: "Info", format: "currency" },
+  // Last 30 Days
+  { id: "impressions30d", field: "impressions30d", title: "Impressions", width: 95, group: "Last 30 Days", format: "number", period: "30d" },
+  { id: "clicks30d", field: "clicks30d", title: "Clicks", width: 80, group: "Last 30 Days", format: "number", period: "30d" },
+  { id: "spend30d", field: "spend30d", title: "Spend", width: 90, group: "Last 30 Days", format: "currency", period: "30d" },
+  { id: "orders30d", field: "orders30d", title: "Orders", width: 80, group: "Last 30 Days", format: "number", period: "30d" },
+  { id: "sales30d", field: "sales30d", title: "Sales", width: 90, group: "Last 30 Days", format: "currency", period: "30d" },
+  { id: "acos30d", field: "acos30d", title: "ACOS", width: 80, group: "Last 30 Days", format: "percent", period: "30d" },
+  // Last 7 Days
+  { id: "impressions7d", field: "impressions7d", title: "Impressions", width: 95, group: "Last 7 Days", format: "number", period: "7d" },
+  { id: "clicks7d", field: "clicks7d", title: "Clicks", width: 80, group: "Last 7 Days", format: "number", period: "7d" },
+  { id: "spend7d", field: "spend7d", title: "Spend", width: 90, group: "Last 7 Days", format: "currency", period: "7d" },
+  { id: "orders7d", field: "orders7d", title: "Orders", width: 80, group: "Last 7 Days", format: "number", period: "7d" },
+  { id: "sales7d", field: "sales7d", title: "Sales", width: 90, group: "Last 7 Days", format: "currency", period: "7d" },
+  { id: "acos7d", field: "acos7d", title: "ACOS", width: 80, group: "Last 7 Days", format: "percent", period: "7d" },
+  // Trend & Recent
+  { id: "acosDelta", field: "acosDelta", title: "ACOS \u0394", width: 90, group: "Trend", format: "percent" },
+  { id: "spentYesterday", field: "spentYesterday", title: "Yday Spend", width: 95, group: "Recent", format: "currency" },
+  { id: "spentDayBeforeYesterday", field: "spentDayBeforeYesterday", title: "DBY Spend", width: 95, group: "Recent", format: "currency" },
+  { id: "budgetCheck", field: "budgetCheck", title: "Budget \u26A0", width: 80, group: "Recent", format: "budgetCheck" },
 ];
 
 export const DATA_COL_COUNT = DATA_COLUMNS.length;
@@ -50,7 +53,8 @@ const RULE_COLUMNS: GridColumn[] = [
 ];
 
 export function buildColumns(campaignCount: number): GridColumn[] {
-  const dataColumns = DATA_COLUMNS.map((col, i) => ({
+  const dataColumns: GridColumn[] = DATA_COLUMNS.map((col, i) => ({
+    id: col.id,
     title: i === 0 ? `${col.title} (${campaignCount})` : col.title,
     width: col.width,
     group: col.group,

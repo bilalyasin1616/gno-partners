@@ -1,7 +1,12 @@
 import { GridCellKind, type CustomCell, type CustomRenderer } from "@glideapps/glide-data-grid";
 import type { CampaignRules } from "../../types";
-import type { DropdownCell, DropdownCellData } from "./types";
+import type { DropdownCell, DropdownCellData, SortEntry } from "./types";
 import { DropdownEditor } from "./DropdownEditor";
+
+export const DEFAULT_SORT: SortEntry[] = [
+  { colIndex: 1, direction: "desc" },  // portfolio
+  { colIndex: 7, direction: "desc" },  // sales30d
+];
 
 export const DROPDOWN_PRESETS = ["3%", "5%", "6%", "10%"] as const;
 

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { GridCellKind } from '@glideapps/glide-data-grid';
-import { textCell, numberCell, percentCell, editableTextCell, checkboxCell, sortCampaigns, getDataCellContent } from './cells';
+import { textCell, numberCell, percentCell, editableTextCell, checkboxCell, getDataCellContent } from './cells';
 import type { AggregatedCampaign } from '../../types';
 
 describe('textCell', () => {
@@ -104,50 +104,23 @@ describe('getDataCellContent', () => {
   } as AggregatedCampaign;
 
   it('renders text fields', () => {
-    const cell = getDataCellContent(campaign, 0, false);
+    const cell = getDataCellContent(campaign, 0);
     if (cell.kind === GridCellKind.Text) {
       expect(cell.data).toBe('Test Camp');
     }
   });
 
   it('renders currency fields with $ prefix', () => {
-    const cell = getDataCellContent(campaign, 3, false);
+    const cell = getDataCellContent(campaign, 2);
     if (cell.kind === GridCellKind.Number) {
       expect(cell.displayData).toBe('$100');
     }
   });
 
   it('renders budgetCheck as warning icon', () => {
-    const cell = getDataCellContent(campaign, 19, false);
+    const cell = getDataCellContent(campaign, 18);
     if (cell.kind === GridCellKind.Text) {
       expect(cell.data).toBe('\u26A0');
     }
-  });
-});
-
-describe('sortCampaigns', () => {
-  it('sorts by portfolio then by 30d sales descending', () => {
-    const campaigns = [
-      { portfolio: 'Beta', sales30d: 100, campaignName: 'B1' },
-      { portfolio: 'Alpha', sales30d: 50, campaignName: 'A2' },
-      { portfolio: 'Alpha', sales30d: 200, campaignName: 'A1' },
-    ] as AggregatedCampaign[];
-
-    const sorted = sortCampaigns(campaigns);
-
-    expect(sorted[0].campaignName).toBe('A1');
-    expect(sorted[1].campaignName).toBe('A2');
-    expect(sorted[2].campaignName).toBe('B1');
-  });
-
-  it('does not mutate original array', () => {
-    const campaigns = [
-      { portfolio: 'B', sales30d: 1, campaignName: 'X' },
-      { portfolio: 'A', sales30d: 2, campaignName: 'Y' },
-    ] as AggregatedCampaign[];
-
-    sortCampaigns(campaigns);
-
-    expect(campaigns[0].campaignName).toBe('X');
   });
 });

@@ -9,6 +9,11 @@ export interface DropdownCellData {
 
 export type DropdownCell = CustomCell<DropdownCellData>;
 
+export interface SortEntry {
+  colIndex: number;
+  direction: "asc" | "desc";
+}
+
 export interface CampaignGridProps {
   campaigns: AggregatedCampaign[];
   rulesMap: Map<string, CampaignRules>;
